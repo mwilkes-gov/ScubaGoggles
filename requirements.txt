@@ -31,3 +31,5 @@ packaging>=26.0
 
 # UI dependencies for the Streamlit-based configuration interface
 streamlit>=1.35.0
+
+pillow==12.2.0
