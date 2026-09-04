@@ -30,6 +30,6 @@ tqdm>=4.66.5
 packaging>=26.0
 
 # UI dependencies for the Streamlit-based configuration interface
-streamlit>=1.35.0
+streamlit==1.54.0
 
 pillow==12.2.0
