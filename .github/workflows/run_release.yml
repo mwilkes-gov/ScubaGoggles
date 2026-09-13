@@ -42,8 +42,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: Package Repo for release
         shell: bash
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          reqv="${{ inputs.version }}"
+          reqv="$INPUT_VERSION"
           reqv="${reqv//[[:space:]]/}"
           [[ ! "$reqv" =~ ^[0-9]{1,2}(\.[0-9]{1,2}){2}$ ]] \
             && echo "invalid request version: $reqv" && exit 1
