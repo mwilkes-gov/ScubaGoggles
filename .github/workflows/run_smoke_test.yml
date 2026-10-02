@@ -44,12 +44,16 @@ jobs:
     steps:
       - name: Configure variable outputs
         id: variables
+        env:
+          INPUT_OPERATING_SYSTEM: ${{ inputs.operating-system }}
+          INPUT_PYTHON_VERSION: ${{ inputs.python-version }}
+          INPUT_OPA_VERSION: ${{ inputs.opa-version }}
         run: |
           # For manual runs
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            operatingsystem_val="${{ inputs.operating-system }}"
-            pythonversion_val="${{ inputs.python-version }}"
-            opaversion_val="${{ inputs.opa-version }}"
+            operatingsystem_val="$INPUT_OPERATING_SYSTEM"
+            pythonversion_val="$INPUT_PYTHON_VERSION"
+            opaversion_val="$INPUT_OPA_VERSION"
           # Default values for other events
           else
             operatingsystem_val="['windows-latest', 'macos-latest', 'ubuntu-latest']"
